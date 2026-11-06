@@ -286,14 +286,14 @@ function loadWeather(query, successMessage = "") {
   );
 }
 
-function searchWeather(city) {
+function searchWeather(city, state) {
   const trimmedCity = city.trim();
   if (!trimmedCity) {
     showStatus("Type a city first 🙂", true);
     return;
   }
 
-  return loadWeather({ q: trimmedCity });
+  return loadWeather({ q: `${trimmedCity}, ${state}` });
 }
 
 function handleLocationError(error) {
