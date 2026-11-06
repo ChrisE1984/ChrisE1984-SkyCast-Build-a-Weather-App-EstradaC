@@ -91,7 +91,7 @@ function renderToday(current, forecastItems) {
   const localTime = createElement(
     "p",
     "mt-2 mb-0 text-sm",
-    `Local time: ${formatCityTime(current.dt, current.timezone)}`,
+    `Local time: ${formatCityTime(Date.now() / 1000, current.timezone)}`,
   );
   const heading = createElement(
     "h2",
@@ -335,5 +335,6 @@ locationButton.addEventListener("click", () => {
     handleLocationError,
   );
 });
+
 //---- On Load ----
 searchWeather("Stockton");
