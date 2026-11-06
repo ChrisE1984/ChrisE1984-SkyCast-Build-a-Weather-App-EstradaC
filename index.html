@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A clear, friendly weather forecast for your city."
+    />
+    <meta name="theme-color" content="#d4e7fb" />
+    <title>SkyCast — Your daily forecast</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body
+    class="m-0 min-h-screen min-w-80 scheme-light bg-blue-100 font-sans text-slate-950 antialiased"
+  >
+    <main class="mx-3 max-w-3xl pb-10 pt-3">
+      <header>
+        <p class="mb-3 text-xs leading-none">
+          Today’s Weather, At a glance...
+        </p>
+        <h1
+          class="mb-7 flex origin-left scale-x-90 items-center gap-1 text-3xl leading-tight font-black tracking-tighter text-slate-700 drop-shadow-sm"
+        >
+          SkyCast
+          <img
+            id="brand-weather-icon"
+            class="h-10 w-10 object-contain"
+            alt=""
+          />
+        </h1>
+        <form
+          id="search-form"
+          class="flex w-80 gap-5"
+          role="search"
+        >
+          <label class="sr-only" for="city-input">Search for a city</label>
+          <input
+            id="city-input"
+            class="h-8 w-56 min-w-0 rounded border-0 bg-white px-1 py-1 font-serif text-base text-slate-900 italic outline-none placeholder:text-slate-900 placeholder:opacity-70 focus:ring-2 focus:ring-sky-400"
+            type="text"
+            placeholder="Search a city"
+            autocomplete="off"
+          />
+          <button
+            class="h-8 w-20 shrink-0 cursor-pointer rounded border-0 bg-sky-500 text-xs text-sky-950 hover:bg-sky-600"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+        <button
+          id="location-button"
+          class="mt-2 cursor-pointer border-0 bg-transparent p-0 text-xs text-sky-900 underline hover:text-sky-950"
+          type="button"
+        >
+          Use my location
+        </button>
+      </header>
+
+      <p
+        id="status"
+        class="my-0 min-h-0 text-xs text-slate-600"
+        role="status"
+        aria-live="polite"
+      ></p>
+      <section
+        id="today"
+        class="mt-8"
+        aria-label="Today's weather"
+      ></section>
+      <section class="mt-8" aria-labelledby="forecast-heading">
+        <h2
+          id="forecast-heading"
+          class="mb-6 origin-left scale-x-90 text-2xl t font-extrabold drop-shadow-sm sm:mb-12 sm:ml-5"
+        >
+          5-Day Forecast
+        </h2>
+        <ul
+          id="forecast"
+          class="m-0 grid list-none grid-cols-2 gap-3 px-0 sm:grid-cols-5 sm:gap-3 sm:px-0.5"
+          aria-live="polite"
+        ></ul>
+      </section>
+
+      <footer id="footer" class="hidden">Data from OpenWeather</footer>
+    </main>
+    <script src="config.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
